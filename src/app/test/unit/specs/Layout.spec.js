@@ -5,7 +5,7 @@ describe('ImageRender.vue', () => {
   it('should set current value text', () => {
     const Constructor = Vue.extend(Layout)
     const imageRender = new Constructor().$mount()
-    imageRender.setImage('test string')
+    imageRender.currentValue = 'test string'
     expect(imageRender.currentValue).to.equal('test string')
   })
 })

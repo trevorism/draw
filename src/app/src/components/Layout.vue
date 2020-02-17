@@ -19,6 +19,7 @@
 <script>
 import TextArea from './TextArea'
 import ImageRender from './ImageRender'
+import axios from 'axios'
 
 export default {
   name: 'HelloWorld',
@@ -30,7 +31,13 @@ export default {
   },
   methods: {
     setImage: function (text) {
-      this.currentValue = text
+      axios.post('api/image', text)
+        .then((result) => {
+          this.currentValue = result.data
+        })
+        .catch((msg) => {
+          this.currentValue = 'Error: ' + msg
+        })
     }
   }
 }
